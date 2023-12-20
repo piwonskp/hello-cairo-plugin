@@ -1,0 +1,22 @@
+[package]
+name = "examples"
+version = "0.1.0"
+cairo-version = "2.3.1"
+
+[lib]
+casm = true
+sierra = true
+
+[dependencies]
+## Referencing using local package:
+hello = { path = "../../" }
+
+## Referencing using git:
+# hello = { git = "https://github.com/piwonskp/hello-cairo-plugin", crate = "hello" }
+
+## Referencing compiled as part of this project:
+## As for scarb 2.4.0 this is still an unsupported feature
+# hello = ">=0.1.0"
+
+
+[[target.hello]]
