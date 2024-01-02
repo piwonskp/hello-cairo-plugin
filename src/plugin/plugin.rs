@@ -1,10 +1,10 @@
 use std::fmt;
-use std::sync::Arc;
 use anyhow::Result;
 
 use cairo_lang_defs::plugin::{
     DynGeneratedFileAuxData, GeneratedFileAuxData, MacroPlugin, PluginGeneratedFile, PluginResult, InlineMacroExprPlugin
 };
+use cairo_lang_defs::plugin::PluginSuite;
 use cairo_lang_defs::patcher::PatchBuilder;
 use cairo_lang_syntax::node::helpers::QueryAttrs;
 use cairo_lang_utils::unordered_hash_map::UnorderedHashMap;
@@ -68,7 +68,7 @@ pub fn handle_function(
 
     let body = function_body.body(db);
     let rewritten_body = RewriteNode::interpolate_patched("
-    'Hello, $func_name$!'.print();
+    debug::print_felt252('Hello, $func_name$!');
     $body$
     ", &UnorderedHashMap::from([
         ("body".to_string(), RewriteNode::from_ast(&body)),
@@ -88,8 +88,6 @@ pub fn handle_function(
 
     let rewritten_function = RewriteNode::interpolate_patched(
         "
-        use debug::PrintTrait;
-
         $attributes$
         $func_decl$ {
             $body$
@@ -213,12 +211,10 @@ impl CairoPlugin for InCompilerPlugin {
 
 struct PluginInstance;
 impl CairoPluginInstance for PluginInstance {
-    fn macro_plugins(&self) -> Vec<Arc<dyn MacroPlugin>> {
-        vec![Arc::new(HelloPlugin::default())]
-    }
-
-    fn inline_macro_plugins(&self) -> Vec<(String, Arc<dyn InlineMacroExprPlugin>)> {
-        vec![]
+    fn plugin_suite(&self) -> PluginSuite {
+        let mut suite = PluginSuite::default();
+        suite.add_plugin::<HelloPlugin>();
+        suite
     }
 }
 

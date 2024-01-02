@@ -1,28 +1,24 @@
 [package]
-name = "staged"
+name = "hello-cairo-plugin"
 version = "0.0.0"
 edition = "2021"
-
-[[bin]]
-name = "cairo-run"
-path = "src/bin/cairo_run.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 anyhow = "1.0.75"
-cairo-lang-compiler = "2.3.1"
-cairo-lang-defs = "2.3.1"
-cairo-lang-runner = "2.3.1"
-cairo-lang-semantic = "2.3.1"
-cairo-lang-sierra = "2.3.1"
-cairo-lang-starknet = "2.3.1"
-cairo-lang-syntax = "2.3.1"
-cairo-lang-utils = "2.3.1"
+cairo-lang-compiler = "2.4.1"
+cairo-lang-defs = "2.4.1"
+cairo-lang-runner = "2.4.1"
+cairo-lang-semantic = "2.4.1"
+cairo-lang-sierra = "2.4.1"
+cairo-lang-starknet = "2.4.1"
+cairo-lang-syntax = "2.4.1"
+cairo-lang-utils = "2.4.1"
 camino = "1.1.6"
 clap = "4.4.8"
 indoc = "2.0.4"
-scarb = { git = "https://github.com/software-mansion/scarb", tag = "v2.3.1", version = "2.3.1" }
+scarb = { git = "https://github.com/software-mansion/scarb", tag = "v2.4.1", version = "2.4.1" }
 scarb-metadata = "1.8.0"
 scarb-ui = "0.1.0"
 semver = "1.0.20"
