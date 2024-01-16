@@ -66,7 +66,7 @@ impl Compiler for HelloCompiler {
 
 #[test]
 fn test_compiler() {
-    use crate::plugin::plugin::CairoPluginRepository;
+    use crate::boilerplate::plugin_repository::CairoPluginRepository;
     use camino::Utf8PathBuf;
     use scarb::compiler::CompilerRepository;
     use scarb::core::Config;

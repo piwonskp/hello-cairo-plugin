@@ -9,7 +9,9 @@ use scarb::ops;
 use clap::{Parser, Subcommand};
 
 
+mod boilerplate;
 mod plugin;
+
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -49,9 +51,9 @@ pub fn run(args: BuildArgs) -> Result<()> {
     };
 
     let mut compilers = CompilerRepository::std();
-    compilers.add(Box::new(plugin::compiler::HelloCompiler)).unwrap();
+    compilers.add(Box::new(boilerplate::compiler::HelloCompiler)).unwrap();
 
-    let cairo_plugins = plugin::plugin::CairoPluginRepository::new();
+    let cairo_plugins = boilerplate::plugin_repository::CairoPluginRepository::new();
     let repo: scarb::compiler::plugin::CairoPluginRepository = cairo_plugins.into();
 
     let manifest_path = source_dir.join("Scarb.toml");
