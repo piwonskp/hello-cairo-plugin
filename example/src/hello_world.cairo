@@ -1,9 +1,7 @@
-
-
 mod m;
 mod hello_module {
     #[hello]
-    fn add(a: u8,b: u8) -> u8 {
+    fn add(a: u8, b: u8) -> u8 {
         a + b
     }
 }
@@ -18,5 +16,5 @@ fn multiply(a: u8, b: u8) -> u8 {
 fn main() {
     hello_module::add(1, 5);
     multiply(4, 7);
-    m::foo(6,2);
+    m::foo(6, 2);
 }
