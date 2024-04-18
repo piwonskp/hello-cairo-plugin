@@ -30,7 +30,7 @@ pub fn insert_hello(
 
     let body = function_body.body(db);
     let rewritten_body = RewriteNode::interpolate_patched("
-    debug::print_felt252('Hello, $func_name$!');
+    core::debug::print_felt252('Hello, $func_name$!');
     $body$
     ", &UnorderedHashMap::from([
         ("body".to_string(), RewriteNode::from_ast(&body)),
