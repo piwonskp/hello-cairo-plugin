@@ -2,7 +2,7 @@
 version = 1
 
 [[package]]
-name = "examples"
+name = "example"
 version = "0.1.0"
 dependencies = [
  "hello_plugin",

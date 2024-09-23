@@ -1,15 +1,16 @@
 [package]
-name = "examples"
+name = "example"
 version = "0.1.0"
-cairo-version = "2.3.1"
+edition = '2023_10'
 
 [lib]
 casm = true
 sierra = true
 
 [dependencies]
+
 ## Referencing using local package:
-hello_plugin = { path = "../../" }
+hello = { path = "../" }
 
 ## Referencing using git:
 # hello = { git = "https://github.com/piwonskp/hello-cairo-plugin", crate = "hello" }
