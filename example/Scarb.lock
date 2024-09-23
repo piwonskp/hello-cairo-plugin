@@ -5,9 +5,9 @@ version = 1
 name = "example"
 version = "0.1.0"
 dependencies = [
- "hello",
+ "hello_plugin",
 ]
 
 [[package]]
-name = "hello"
-version = "0.0.0"
+name = "hello_plugin"
+version = "1.0.0"

@@ -18,5 +18,3 @@ hello = { path = "../" }
 ## Referencing compiled as part of this project:
 ## As for scarb 2.4.0 this is still an unsupported feature
 # hello = ">=0.1.0"
-
-[[target.hello]]

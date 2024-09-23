@@ -1,29 +1,17 @@
 [package]
-name = "hello-cairo-plugin"
-version = "0.0.0"
+name = "hello_plugin"
+version = "1.0.0"
 edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-anyhow = "1.0.75"
-cairo-lang-compiler = "~2.4.4"
-cairo-lang-defs = "~2.4.4"
-cairo-lang-runner = "~2.4.4"
-cairo-lang-semantic = "~2.4.4"
-cairo-lang-sierra = "~2.4.4"
-cairo-lang-starknet = "~2.4.4"
-cairo-lang-syntax = "~2.4.4"
-cairo-lang-utils = "~2.4.4"
-camino = "1.1.6"
-clap = "4.4.8"
-indoc = "2.0.4"
-scarb = { git = "https://github.com/software-mansion/scarb", tag="v2.4.4" }
-scarb-metadata = "1.8.0"
-scarb-ui = "0.1.0"
-semver = "1.0.20"
-serde = "1.0.193"
-serde_json = "1.0.108"
-smol_str = "0.2.0"
-tracing = "0.1.40"
-url = "2.5.0"
+cairo-lang-macro = "0.1.0"
+cairo-lang-defs = "2.8.2"
+cairo-lang-diagnostics = "2.8.2"
+cairo-lang-parser = "2.8.2"
+cairo-lang-syntax = "2.8.2"
+regex = "1.10.6"
