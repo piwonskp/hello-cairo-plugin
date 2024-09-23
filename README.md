@@ -23,25 +23,18 @@ An example project is located in [example directory](./example/).
 
 ### Execution
 
-2. cd into example directory:
+1. cd into project directory:
 
 ```
 cd example/
 ```
-
-2. Run the plugin to compile project:
-
-```
-cargo run build .
-```
-
-3. Run compiled code:
+2. Run scarb with the hello-cairo-plugin:
 
 ```
-scarb cairo-run --no-build
+scarb cairo-run
 ```
 
-4. You should see the output:
+3. You should see the output:
 
 ```
      Running examples
@@ -52,11 +45,12 @@ scarb cairo-run --no-build
 Run completed successfully, returning []
 ```
 
-## Project structure
+## Development
 
-The package consists of two parts: business logic and boilerplate code. Boilerplate code is stored in `src/main.rs` and `src/boilerplate` directory. Business logic is stored in `src/plugin`.
-Plugin directory contains three files:
+The repository shows the implementation of cairo plugin with macros. For the implementation of macros see [src/lib.rs](./src/lib.rs). The file illustrates two approaches to developing attribute macros: 
+* hello macro using native cairo parser
+* hello_regex macro implementing the same functionality using regex
 
-- `config.rs` contains base properties of the plugin - its name, version and repository URL.
-- `macro_plugin.rs` contains the plugin configuration. This is the place where you map item type to the function that processes it.
-- `insert_hello.rs` contains the function that inserts hello message.
+It is recommended especially for complex macros to use the native cairo parser as regexes are often error prone and have their limitations. They are lightweight however and may be enough for some macros.
+
+For more see [scarb's documentation on procedural macros](https://docs.swmansion.com/scarb/docs/reference/procedural-macro.html#procedural-macro-will-be-called-from-cairo-code).
